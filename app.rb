@@ -48,6 +48,7 @@ end
 
 get '/details/:id' do
   post_id = params[:id]
-
-  erb "Displaying results information for post with id #{post_id}"
+  result = @db.execute "Select * from Posts Where id=?", [post_id]
+  @post = result[0]
+  erb  :details
 end
