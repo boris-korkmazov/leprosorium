@@ -1,14 +1,22 @@
 <p>
-  <%= @post['content']%>
+  <%= @post['post_content']%>
   <br/>
-  Add at <%= @post['created_at'] %>
+  Add at <%= @post['post_created_at'] %>
   <br />
 </p>
 
 <br/>
 
 <h4>Comments</h4>
-<form action="/details/<%= @post['id']%>" method="POST" role="form">
+<% @results.each do |comment|%>
+  <p>
+    <%= comment['c_content']%>
+    <br/>
+    Add at <%= comment['c_created_at'] %>
+  </p>
+  <hr>
+<%end%>
+<form action="/details/<%= @post['post_id']%>" method="POST" role="form">
   <textarea class="form-control" rows="6" placeholder="Type comment text here" name="content"></textarea>
   <br/>
   <button type="submit" class="btn btn-primary">Add Comment</button>
