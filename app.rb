@@ -52,3 +52,12 @@ get '/details/:id' do
   @post = result[0]
   erb  :details
 end
+
+
+post '/details/:id' do
+  
+  post_id = params[:id]
+
+
+  content = params[:content]
+end
