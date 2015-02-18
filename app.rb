@@ -22,7 +22,7 @@ configure do
 end
 
 get '/' do
-	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
+  erb :index
 end
 
 
@@ -40,7 +40,7 @@ post '/new_post' do
     return erb :new_post
   end
 
-  @db.execute 'insert into Posts (content, created_at) values (?, datetime())'. [content]
+  @db.execute 'insert into Posts (content, created_at) values (?, datetime())', [content]
 
   erb "You typed '#{content}'"
 end
